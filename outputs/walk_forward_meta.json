@@ -1,0 +1,429 @@
+[
+  {
+    "name": "fold1",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 980,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2015-12-22",
+    "test_start": "2016-01-25",
+    "test_end": "2017-01-23",
+    "train_class_share": [
+      0.6030612244897959,
+      0.376530612244898,
+      0.02040816326530612
+    ],
+    "test_class_share": [
+      0.7896825396825397,
+      0.21031746031746032,
+      0.0
+    ],
+    "test_classes_present": [
+      0,
+      1
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.7896825396825397,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.09590248966073842,
+        0.15606545041593017,
+        0.2999772412391991
+      ],
+      "train_counts": [
+        591,
+        369,
+        20
+      ],
+      "component_means_vol": [
+        0.09744861368421856,
+        0.1510926476947409,
+        0.29996050821231224
+      ]
+    }
+  },
+  {
+    "name": "fold2",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 1232,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2016-12-21",
+    "test_start": "2017-01-24",
+    "test_end": "2018-01-23",
+    "train_class_share": [
+      0.5941558441558441,
+      0.35795454545454547,
+      0.04788961038961039
+    ],
+    "test_class_share": [
+      0.9523809523809523,
+      0.003968253968253968,
+      0.04365079365079365
+    ],
+    "test_classes_present": [
+      0,
+      1,
+      2
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.9523809523809523,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.09238639650898016,
+        0.15326757391784462,
+        0.24472808707452515
+      ],
+      "train_counts": [
+        732,
+        441,
+        59
+      ],
+      "component_means_vol": [
+        0.09306887941661796,
+        0.14362140498960907,
+        0.19125872123708523
+      ]
+    }
+  },
+  {
+    "name": "fold3",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 1484,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2017-12-21",
+    "test_start": "2018-01-24",
+    "test_end": "2019-01-24",
+    "train_class_share": [
+      0.5694070080862533,
+      0.3557951482479784,
+      0.0747978436657682
+    ],
+    "test_class_share": [
+      0.4126984126984127,
+      0.20634920634920634,
+      0.38095238095238093
+    ],
+    "test_classes_present": [
+      0,
+      1,
+      2
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.4126984126984127,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.08080177816664356,
+        0.1396787419896876,
+        0.22013846110220261
+      ],
+      "train_counts": [
+        845,
+        528,
+        111
+      ],
+      "component_means_vol": [
+        0.08126121594048415,
+        0.13145191405882237,
+        0.17770547107223242
+      ]
+    }
+  },
+  {
+    "name": "fold4",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 1736,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2018-12-24",
+    "test_start": "2019-01-25",
+    "test_end": "2020-01-24",
+    "train_class_share": [
+      0.6100230414746544,
+      0.28225806451612906,
+      0.1077188940092166
+    ],
+    "test_class_share": [
+      0.5833333333333334,
+      0.3412698412698413,
+      0.07539682539682539
+    ],
+    "test_classes_present": [
+      0,
+      1,
+      2
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.5833333333333334,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.0841621662985099,
+        0.14870613240081826,
+        0.23611115260317578
+      ],
+      "train_counts": [
+        1059,
+        490,
+        187
+      ],
+      "component_means_vol": [
+        0.08419051627701943,
+        0.14185529429933583,
+        0.22039756084451703
+      ]
+    }
+  },
+  {
+    "name": "fold5",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 1988,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2019-12-24",
+    "test_start": "2020-01-27",
+    "test_end": "2021-01-25",
+    "train_class_share": [
+      0.5769617706237424,
+      0.30181086519114686,
+      0.12122736418511067
+    ],
+    "test_class_share": [
+      0.17857142857142858,
+      0.20634920634920634,
+      0.6150793650793651
+    ],
+    "test_classes_present": [
+      0,
+      1,
+      2
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.17857142857142858,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.08213997748640277,
+        0.14228182824285754,
+        0.2276297421486799
+      ],
+      "train_counts": [
+        1147,
+        600,
+        241
+      ],
+      "component_means_vol": [
+        0.08255591511678785,
+        0.1370818326471316,
+        0.21391744672497467
+      ]
+    }
+  },
+  {
+    "name": "fold6",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 2240,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2020-12-23",
+    "test_start": "2021-01-26",
+    "test_end": "2022-01-24",
+    "train_class_share": [
+      0.7517857142857143,
+      0.23080357142857144,
+      0.017410714285714286
+    ],
+    "test_class_share": [
+      0.7341269841269841,
+      0.26587301587301587,
+      0.0
+    ],
+    "test_classes_present": [
+      0,
+      1
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.7341269841269841,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.09753696433144739,
+        0.21217061595449038,
+        0.6948185967303474
+      ],
+      "train_counts": [
+        1684,
+        517,
+        39
+      ],
+      "component_means_vol": [
+        0.0973234063378951,
+        0.19795090237415433,
+        0.6621580884466035
+      ]
+    }
+  },
+  {
+    "name": "fold7",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 2492,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2021-12-23",
+    "test_start": "2022-01-25",
+    "test_end": "2023-01-25",
+    "train_class_share": [
+      0.7524077046548957,
+      0.23154093097913322,
+      0.016051364365971106
+    ],
+    "test_class_share": [
+      0.003968253968253968,
+      0.996031746031746,
+      0.0
+    ],
+    "test_classes_present": [
+      0,
+      1
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.003968253968253968,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.09897829815529172,
+        0.20792094271013462,
+        0.6865309711633711
+      ],
+      "train_counts": [
+        1875,
+        577,
+        40
+      ],
+      "component_means_vol": [
+        0.09898942428806883,
+        0.19191235269329693,
+        0.654354845860687
+      ]
+    }
+  },
+  {
+    "name": "fold8",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 2744,
+    "n_test": 252,
+    "train_start": "2012-02-01",
+    "train_end": "2022-12-23",
+    "test_start": "2023-01-26",
+    "test_end": "2024-01-26",
+    "train_class_share": [
+      0.6822157434402333,
+      0.3043002915451895,
+      0.01348396501457726
+    ],
+    "test_class_share": [
+      0.876984126984127,
+      0.12301587301587301,
+      0.0
+    ],
+    "test_classes_present": [
+      0,
+      1
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.876984126984127,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.09885441957952935,
+        0.21768777503191783,
+        0.7120711126853517
+      ],
+      "train_counts": [
+        1872,
+        835,
+        37
+      ],
+      "component_means_vol": [
+        0.09933310325875186,
+        0.20514183964217078,
+        0.6838448960029319
+      ]
+    }
+  },
+  {
+    "name": "fold9",
+    "label_mode": "forward",
+    "labeling_method": "gmm",
+    "gap_days": 20,
+    "n_train": 2996,
+    "n_test": 214,
+    "train_start": "2012-02-01",
+    "train_end": "2023-12-27",
+    "test_start": "2024-01-29",
+    "test_end": "2024-12-02",
+    "train_class_share": [
+      0.7136181575433912,
+      0.2740320427236315,
+      0.012349799732977304
+    ],
+    "test_class_share": [
+      0.9018691588785047,
+      0.09813084112149532,
+      0.0
+    ],
+    "test_classes_present": [
+      0,
+      1
+    ],
+    "majority_train_class": 0,
+    "majority_baseline_test_acc": 0.9018691588785047,
+    "labeler": {
+      "method": "gmm",
+      "n_regimes": 3,
+      "mean_vol_by_regime_on_train": [
+        0.10213208191186014,
+        0.21938497814299251,
+        0.7120711126853517
+      ],
+      "train_counts": [
+        2138,
+        821,
+        37
+      ],
+      "component_means_vol": [
+        0.10276562498965702,
+        0.2065262267343228,
+        0.6904697232830603
+      ]
+    }
+  }
+]

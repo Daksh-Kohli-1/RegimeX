@@ -3,12 +3,7 @@ __pycache__/
 *.pyc
 data/*.csv
 data/*.txt
-data/*.json
 outputs/*.csv
-outputs/*.md
-outputs/*.json
-outputs/figures/*.png
-outputs/models/*.pt
 !outputs/.gitkeep
 !outputs/figures/.gitkeep
 !outputs/models/.gitkeep
