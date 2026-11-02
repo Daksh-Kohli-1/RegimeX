@@ -1,0 +1,115 @@
+# Volatility Regime Forecasting — configuration
+# Edit values here rather than in the code.
+
+tickers: [SPY, QQQ, DIA, XLF, XLK, XLE, XLV, TLT, GLD]
+start_date: "2012-01-01"
+end_date: "2025-01-01"
+
+# If true (or if yfinance/network is unavailable), the pipeline generates a
+# synthetic regime-switching price series instead of downloading real data.
+# All downstream stages run identically either way; reports are labeled
+# accordingly.
+use_synthetic: false
+
+# --- More data (README 9.10) -------------------------------------------------
+# Optional wider/longer universe. Off by default so results stay comparable.
+# All extended tickers have history back to 2007 or earlier.
+use_extended_universe: false
+extended_tickers: [IWM, EFA, EEM, LQD, IEF, SHY, SLV, USO, XLY, XLP, XLI, XLU, XLB]
+extended_start_date: "2007-06-01"
+
+# --- Feature engineering ---
+vol_windows: [5, 10, 20]      # rolling realized-vol windows (days)
+momentum_windows: [5, 10, 20] # rolling momentum windows (days)
+rsi_window: 14
+macd_fast: 12
+macd_slow: 26
+macd_signal: 9
+macd_normalize_by_price: true   # MACD / price (stationary). false = original raw-price MACD
+
+# --- Regime labeling ---
+label_ticker: SPY        # which asset's realized vol defines the regime target
+vol_window: 20            # window (days) of the realized-vol measure behind the label
+n_regimes: 3               # low / medium / high
+labeling_method: gmm       # "gmm" | "percentile" | "hmm"   (hmm needs hmmlearn)
+percentile_bounds: [0.33, 0.66]   # only used if labeling_method == percentile
+
+# 9.1  "forward":  label for day t = realized vol over days t+1 ... t+vol_window
+#                  (shares ZERO days with the inputs known at t)  <- honest forecasting
+#      "backward": label for day t = vol_window-day vol ENDING at t+1
+#                  (19 of 20 days already inside the features)    <- legacy, inflated
+label_mode: forward
+
+# Label-fitting model (GMM/percentile/HMM) is fit on TRAINING rows only (9.3),
+# then applied forward to validation/test rows. There is no switch for this on
+# purpose: fitting on the full sample is a leak.
+
+# 9.5  Purge/embargo. Rows between train and test whose label window reaches into
+#      the test period are dropped. "auto" = vol_window for forward labels, 1 for
+#      backward labels. Or give an integer number of trading days.
+embargo_days: auto
+
+# --- Modeling ---
+sequence_length: 30        # lookback window for LSTM/Transformer
+test_size: 0.2              # chronological holdout fraction (last X% of time)
+val_size: 0.1                # slice of the *train* portion used for early stopping
+random_seed: 42
+
+lstm:
+  hidden_size: 64
+  num_layers: 2
+  dropout: 0.2
+  epochs: 40
+  batch_size: 64
+  lr: 0.001
+  patience: 8
+
+transformer:
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dim_feedforward: 128
+  dropout: 0.2
+  epochs: 40
+  batch_size: 64
+  lr: 0.001
+  patience: 8
+
+gbt:
+  n_estimators: 300
+  max_depth: 3
+  learning_rate: 0.05
+
+# --- Benchmarks (9.2 persistence, 9.8 GARCH) ---
+benchmarks:
+  persistence: true
+  garch: true               # needs the `arch` package; skipped with a log line if missing
+  garch_variant: gjr        # "garch" (symmetric GARCH(1,1)) or "gjr" (GJR-GARCH(1,1,1))
+
+# --- Walk-forward validation (9.4) ---
+walk_forward:
+  enabled: true
+  min_train_days: 1000      # size of the first training window (trading days)
+  test_window_days: 252     # each fold tests on ~1 year
+  step_days: 252            # must be >= test_window_days (non-overlapping test windows)
+  include_deep: true        # LSTM/Transformer in every fold (slowest part of the run)
+
+# --- Strategy layer (9.6) ---
+strategy_asset: SPY        # which asset the strategy trades
+risk_free_rate_annual: 0.02
+cash_earns_rf: true         # un-invested fraction earns the risk-free rate
+transaction_cost_bps: 5     # cost per unit of turnover (5 bps = 0.05%), applied to every rule
+vol_target:
+  target_annual_vol: 0.12   # constant-risk level the exposure scales toward
+  max_leverage: 1.0         # 1.0 = no leverage, exposure capped at 100%
+  min_vol_floor: 0.03       # avoid dividing by ~0 when predicted vol is tiny
+
+# --- Explainability (9.9) ---
+explain:
+  enabled: true
+  permutation_repeats: 5
+  use_shap: true            # used only if the optional `shap` package is installed
+
+# --- Misc ---
+outputs_dir: outputs
+data_dir: data

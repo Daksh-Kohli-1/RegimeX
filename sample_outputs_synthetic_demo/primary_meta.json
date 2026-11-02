@@ -1,0 +1,48 @@
+{
+  "name": "holdout",
+  "label_mode": "forward",
+  "labeling_method": "gmm",
+  "gap_days": 20,
+  "n_train": 2662,
+  "n_test": 671,
+  "train_start": "2012-01-30",
+  "train_end": "2022-04-12",
+  "test_start": "2022-05-11",
+  "test_end": "2024-12-04",
+  "train_class_share": [
+    0.42073628850488354,
+    0.3444778362133734,
+    0.23478587528174305
+  ],
+  "test_class_share": [
+    0.65424739195231,
+    0.28017883755588674,
+    0.06557377049180328
+  ],
+  "test_classes_present": [
+    0,
+    1,
+    2
+  ],
+  "majority_train_class": 0,
+  "majority_baseline_test_acc": 0.65424739195231,
+  "labeler": {
+    "method": "gmm",
+    "n_regimes": 3,
+    "mean_vol_by_regime_on_train": [
+      0.16915678656667818,
+      0.28217776845024334,
+      0.5636813802658555
+    ],
+    "train_counts": [
+      1120,
+      917,
+      625
+    ],
+    "component_means_vol": [
+      0.17062204853547747,
+      0.27530279365321864,
+      0.5533662262373413
+    ]
+  }
+}

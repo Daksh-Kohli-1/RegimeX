@@ -1,0 +1,3 @@
+# Optional extras. The project runs without these.
+# shap: adds SHAP summary plots for the gradient-boosted-trees model (README 9.9).
+shap>=0.44
